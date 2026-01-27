@@ -1,6 +1,4 @@
 /// -------------------------------------------------------------------------------
-/// CoreEngine Framework
-///
 /// Copyright (C) 2024 - 2025, Hurley, Independent Studio.
 /// Copyright (C) 2025 - 2026, Hainan Yuanyou Information Technology Co., Ltd. Guangzhou Branch
 ///
@@ -25,7 +23,7 @@
 
 using UnityEngine;
 
-namespace CoreEngine
+namespace NovaFramework
 {
     /// <summary>
     /// 程序日志接口类，用于在程序中提供日志输出接口函数

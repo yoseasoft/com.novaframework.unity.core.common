@@ -1,6 +1,4 @@
 /// -------------------------------------------------------------------------------
-/// CoreEngine Editor Framework
-///
 /// Copyright (C) 2024 - 2025, Hurley, Independent Studio.
 /// Copyright (C) 2025 - 2026, Hainan Yuanyou Information Technology Co., Ltd. Guangzhou Branch
 ///
@@ -28,7 +26,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEditor;
 
-namespace CoreEngine.Editor
+namespace NovaFramework.Editor
 {
     /// <summary>
     /// 用户设置参数持久化管理类，通常可以采用“EditorPrefs”和“EditorUserSettings”两种形式实现<br/>
