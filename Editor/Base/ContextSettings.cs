@@ -21,13 +21,18 @@
 /// THE SOFTWARE.
 /// -------------------------------------------------------------------------------
 
-namespace NovaFramework
+namespace NovaFramework.Editor
 {
     /// <summary>
     /// 环境上下文的配置类
     /// </summary>
-    public static class Context
+    internal static class ContextSettings
     {
+        /// <summary>
+        /// 通用模块的本地包名
+        /// </summary>
+        public const string LocalPackageNameOfCommonModule = @"com.novaframework.unity.core.common";
+
         /// <summary>
         /// Nova框架基础文件夹的本地安装路径
         /// </summary>
