@@ -1,7 +1,9 @@
 {
     "name": "NovaEditor.Common",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "NovaFramework.Common"
+    ],
     "includePlatforms": [
         "Editor"
     ],
