@@ -104,6 +104,9 @@ namespace NovaFramework.Editor.Manifest
                 }
             }
 
+            // 解析完成后进行变量替换
+            ReplaceVariables(manifest);
+
             return true;
         }
 
@@ -233,7 +236,11 @@ namespace NovaFramework.Editor.Manifest
                     return false;
                 }
 
-                assemblyDefinitionObject.tags.Add(child.Value);
+                string innerTextValue = child.InnerText.Trim();
+                if (!string.IsNullOrEmpty(innerTextValue))
+                {
+                    assemblyDefinitionObject.tags.Add(innerTextValue);
+                }
             }
 
             packageObject.assemblyDefinitionObject = assemblyDefinitionObject;
@@ -288,7 +295,11 @@ namespace NovaFramework.Editor.Manifest
                 switch (child.Name)
                 {
                     case ElementName_ReferencePackage:
-                        packageObject.dependencies.Add(child.Value);
+                        string innerTextValue = child.InnerText.Trim();
+                        if (!string.IsNullOrEmpty(innerTextValue))
+                        {
+                            packageObject.dependencies.Add(innerTextValue);
+                        }
                         break;
                     default:
                         Logger.Error("无法正确识别节点名称‘{0}’，解析该节点数据失败！", child.Name);
@@ -315,7 +326,11 @@ namespace NovaFramework.Editor.Manifest
                 switch (child.Name)
                 {
                     case ElementName_ReferencePackage:
-                        packageObject.repulsions.Add(child.Value);
+                        string innerTextValue = child.InnerText.Trim();
+                        if (!string.IsNullOrEmpty(innerTextValue))
+                        {
+                            packageObject.repulsions.Add(innerTextValue);
+                        }
                         break;
                     default:
                         Logger.Error("无法正确识别节点名称‘{0}’，解析该节点数据失败！", child.Name);
@@ -324,6 +339,83 @@ namespace NovaFramework.Editor.Manifest
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// 对清单对象中的所有字符串字段进行变量替换
+        /// </summary>
+        /// <param name="manifest">清单对象实例</param>
+        public static void ReplaceVariables(RepoManifest manifest)
+        {
+            if (manifest?.variables == null || manifest.variables.Count == 0)
+                return;
+
+            // 构建变量字典
+            Dictionary<string, string> variableDict = new Dictionary<string, string>();
+            foreach (var variable in manifest.variables)
+            {
+                if (!string.IsNullOrEmpty(variable.key) && variable.value != null)
+                {
+                    variableDict[variable.key] = variable.value;
+                }
+            }
+
+            if (variableDict.Count == 0)
+                return;
+
+            // 替换本地路径中的默认值
+            if (manifest.localPaths != null)
+            {
+                foreach (var localPath in manifest.localPaths)
+                {
+                    localPath.defaultValue = ReplaceVariablesInString(localPath.defaultValue, variableDict);
+                    localPath.title = ReplaceVariablesInString(localPath.title, variableDict);
+                }
+            }
+
+            // 替换模块中的相关字段
+            if (manifest.modules != null)
+            {
+                foreach (var module in manifest.modules)
+                {
+                    module.name = ReplaceVariablesInString(module.name, variableDict);
+                    module.displayName = ReplaceVariablesInString(module.displayName, variableDict);
+                    module.title = ReplaceVariablesInString(module.title, variableDict);
+                    module.description = ReplaceVariablesInString(module.description, variableDict);
+                    module.gitRepositoryUrl = ReplaceVariablesInString(module.gitRepositoryUrl, variableDict);
+
+                    // 替换资产源中的本地路径
+                    if (module.assetSourceObject?.localPaths != null)
+                    {
+                        foreach (var localPath in module.assetSourceObject.localPaths)
+                        {
+                            localPath.defaultValue = ReplaceVariablesInString(localPath.defaultValue, variableDict);
+                            localPath.title = ReplaceVariablesInString(localPath.title, variableDict);
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 在字符串中替换变量占位符
+        /// </summary>
+        /// <param name="input">输入字符串</param>
+        /// <param name="variables">变量字典</param>
+        /// <returns>替换后的字符串</returns>
+        private static string ReplaceVariablesInString(string input, Dictionary<string, string> variables)
+        {
+            if (string.IsNullOrEmpty(input) || variables == null || variables.Count == 0)
+                return input;
+
+            string result = input;
+            foreach (var kvp in variables)
+            {
+                string placeholder = "%" + kvp.Key + "%";
+                result = result.Replace(placeholder, kvp.Value);
+            }
+
+            return result;
         }
 
         /// <summary>

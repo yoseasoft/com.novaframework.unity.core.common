@@ -21,7 +21,6 @@
 /// THE SOFTWARE.
 /// -------------------------------------------------------------------------------
 
-using System.Collections;
 using System.Collections.Generic;
 
 namespace NovaFramework.Editor.Manifest
@@ -53,6 +52,18 @@ namespace NovaFramework.Editor.Manifest
             }
         }
 
+        internal void LoadData()
+        {
+            Clear();
+            
+            string url = PersistencePath.AbsolutePathOfRepositoryManifestFile;
+            if (!RepoManifestParser.Parse(url, this))
+            {
+                Logger.Error("仓库资源配置清单解析失败，请检测目标文件‘{0}’格式是否正确后再重新加载数据！", url);
+                Clear();
+            }
+        } 
+        
         /// <summary>
         /// 对象类清理回调接口
         /// </summary>
