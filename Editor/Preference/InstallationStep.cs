@@ -25,12 +25,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace NovaFramework.Editor.Preference
+namespace NovaFramework.Editor
 {
     /// <summary>
-    /// 偏好设置的中心调度管理类，用于的框架中的所有配置窗口进行统一的调度管理
+    /// 针对自动安装流程的单步对象类，用于定义属于指定模块的安装步骤
     /// </summary>
-    public static class PreferenceCenter
+    public abstract class InstallationStep
     {
     }
 }
