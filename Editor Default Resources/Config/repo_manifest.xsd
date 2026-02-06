@@ -21,6 +21,12 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="package-import-strategy-type">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="installable" type="xs:boolean"/>
+        <xs:attribute name="configurable" type="xs:boolean"/>
+    </xs:complexType>
+
     <xs:simpleType name="assembly-loadable-strategy-type">
         <xs:restriction base="xs:string">
             <xs:enumeration value="Module"/>
@@ -38,6 +44,13 @@
             <xs:element name="git-repository">
                 <xs:complexType>
                     <xs:attribute name="url" type="xs:string" use="required"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="installation-wizard" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="import-strategy" type="package-import-strategy-type" minOccurs="1" maxOccurs="unbounded"/>
+                    </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="assembly-definition" minOccurs="0" maxOccurs="1">

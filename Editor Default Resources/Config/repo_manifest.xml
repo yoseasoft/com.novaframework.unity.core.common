@@ -50,6 +50,9 @@
              title="Nova引擎核心配置库"
              required="true">
         <git-repository url="%REPO_URL%/com.novaframework.unity.core.configure.git"/>
+        <installation-wizard>
+            <import-strategy name="NovaEditor.Configure" installable="true" configurable="true"/>
+        </installation-wizard>
         <dependencies>
             <reference-package>com.novaframework.unity.core.common</reference-package>
         </dependencies>
@@ -60,6 +63,9 @@
              title="Nova引擎核心启动库"
              required="true">
         <git-repository url="%REPO_URL%/com.novaframework.unity.core.boot.git"/>
+        <installation-wizard>
+            <import-strategy name="NovaEditor.Boot" installable="true"/>
+        </installation-wizard>
         <dependencies>
             <reference-package>com.yoseasoft.gooasset</reference-package>
             <reference-package>com.novaframework.unity.core.common</reference-package>

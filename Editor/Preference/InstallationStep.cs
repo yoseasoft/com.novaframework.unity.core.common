@@ -25,7 +25,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace NovaFramework.Editor
+namespace NovaFramework.Editor.Preference
 {
     /// <summary>
     /// 针对自动安装流程的单步对象类，用于定义属于指定模块的安装步骤
