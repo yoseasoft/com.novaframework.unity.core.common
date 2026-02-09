@@ -30,6 +30,14 @@ namespace NovaFramework
     /// </summary>
     public static class Logger
     {
+        private delegate void ObjectMessageOutputCallback(object message);
+        private delegate void StringMessageOutputCallback(string message);
+        private delegate void FormatMessageOutputCallback(string format, params object[] args);
+
+        private static ObjectMessageOutputCallback logObject;
+        private static StringMessageOutputCallback logString;
+        private static FormatMessageOutputCallback logFormat;
+
         /// <summary>
         /// 普通信息输出日志接口函数
         /// </summary>
