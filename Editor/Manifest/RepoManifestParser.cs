@@ -85,9 +85,9 @@ namespace NovaFramework.Editor.Manifest
             {
                 XmlNode child = nodeList[n];
 
+                // 跳过非元素节点（如注释、文本节点等）
                 if (XmlNodeType.Element != child.NodeType)
                 {
-                    Logger.Info("目标节点为非法类型‘{0}’，无法正确解析其内部数据‘{1}’！", child.NodeType.ToString(), child.Value);
                     continue;
                 }
 
@@ -371,9 +371,9 @@ namespace NovaFramework.Editor.Manifest
             {
                 XmlNode child = nodeList[n];
 
+                // 跳过非元素节点
                 if (XmlNodeType.Element != child.NodeType)
                 {
-                    Logger.Info("目标节点为非法类型‘{0}’，解析模块排斥配置数据失败！", child.NodeType.ToString());
                     continue;
                 }
 
