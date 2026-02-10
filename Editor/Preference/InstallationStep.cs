@@ -32,5 +32,8 @@ namespace NovaFramework.Editor.Preference
     /// </summary>
     public abstract class InstallationStep
     {
+        public abstract void Install(System.Action onComplete);
+        public abstract void Uninstall(System.Action onComplete = null);
+        
     }
 }
