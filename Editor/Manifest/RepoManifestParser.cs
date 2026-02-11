@@ -62,6 +62,15 @@ namespace NovaFramework.Editor.Manifest
         private const string AttributeName_Configurable = @"configurable";
 
         /// <summary>
+        /// Package允许的最大ID值
+        /// </summary>
+        private const int PackageIdMaxValue = 999999;
+        /// <summary>
+        /// 引用程序集的Order标识分配的编号范围
+        /// </summary>
+        private const int AssemblyOrderAssignedRangeValue = 100;
+
+        /// <summary>
         /// 对指定地址的文本资源中数据进行解析，并填充到清单对象中
         /// </summary>
         /// <param name="url">资源路径</param>
@@ -176,6 +185,8 @@ namespace NovaFramework.Editor.Manifest
             packageObject.description = GetXmlAttribute(node, AttributeName_Description);
             packageObject.required = GetXmlAttributeAsBool(node, AttributeName_Required);
 
+            Logger.Assert(packageObject.pid < PackageIdMaxValue, "目标模组包‘{0}’的ID标识超出最大允许范围！", packageObject.name);
+
             XmlNodeList nodeList = node.ChildNodes;
             for (int n = 0; null != nodeList && n < nodeList.Count; ++n)
             {
@@ -269,7 +280,7 @@ namespace NovaFramework.Editor.Manifest
             AssemblyDefinitionObject assemblyDefinitionObject = new AssemblyDefinitionObject();
 
             assemblyDefinitionObject.name = GetXmlAttribute(node, AttributeName_Name);
-            assemblyDefinitionObject.order = GetXmlAttributeAsInt(node, AttributeName_Order);
+            assemblyDefinitionObject.order = packageObject.pid * AssemblyOrderAssignedRangeValue + GetXmlAttributeAsInt(node, AttributeName_Order);
 
             XmlNodeList nodeList = node.ChildNodes;
             for (int n = 0; null != nodeList && n < nodeList.Count; ++n)

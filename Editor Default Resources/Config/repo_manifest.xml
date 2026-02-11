@@ -18,36 +18,14 @@
     <!-- 插件包配置清单 -->
 
     <!-- 基础引擎库 -->
-    <package pid="11"
-             name="com.yoseasoft.gooasset"
-             display-name="GooAsset"
-             title="Goo资产管理框架"
-             required="true">
-        <git-repository url="%REPO_URL%/GooAsset.git"/>
-        <installation-wizard>
-            <import-strategy name="GooAsset.Editor" installable="true" configurable="true"/>
-        </installation-wizard>
-    </package>
-    <package pid="21"
-             name="com.yoseasoft.novaframework"
-             display-name="NovaFramework"
-             title="Nova引擎框架"
-             required="true">
-        <git-repository url="%REPO_URL%/NovaFramework.git"/>
-        <dependencies>
-            <reference-package>com.yoseasoft.gooasset</reference-package>
-            <reference-package>com.novaframework.unity.core.configure</reference-package>
-            <reference-package>com.novaframework.unity.unitask</reference-package>
-        </dependencies>
-    </package>
-    <package pid="31"
+    <package pid="100011"
              name="com.novaframework.unity.core.common"
              display-name="NovaFramework.Common"
              title="Nova引擎核心通用库"
              required="true">
         <git-repository url="%REPO_URL%/com.novaframework.unity.core.common.git"/>
     </package>
-    <package pid="32"
+    <package pid="100012"
              name="com.novaframework.unity.core.configure"
              display-name="NovaFramework.Configure"
              title="Nova引擎核心配置库"
@@ -60,7 +38,29 @@
             <reference-package>com.novaframework.unity.core.common</reference-package>
         </dependencies>
     </package>
-    <package pid="33"
+    <package pid="100021"
+             name="com.yoseasoft.gooasset"
+             display-name="GooAsset"
+             title="Goo资产管理框架"
+             required="true">
+        <git-repository url="%REPO_URL%/GooAsset.git"/>
+        <installation-wizard>
+            <import-strategy name="GooAsset.Editor" installable="true" configurable="true"/>
+        </installation-wizard>
+    </package>
+    <package pid="100031"
+             name="com.yoseasoft.novaframework"
+             display-name="NovaFramework"
+             title="Nova引擎框架"
+             required="true">
+        <git-repository url="%REPO_URL%/NovaFramework.git"/>
+        <dependencies>
+            <reference-package>com.yoseasoft.gooasset</reference-package>
+            <reference-package>com.novaframework.unity.core.configure</reference-package>
+            <reference-package>com.novaframework.unity.unitask</reference-package>
+        </dependencies>
+    </package>
+    <package pid="100041"
              name="com.novaframework.unity.core.boot"
              display-name="NovaFramework.Boot"
              title="Nova引擎核心启动库"
@@ -78,32 +78,26 @@
     </package>
 
     <!-- 第三方工具库 -->
-    <package pid="111"
+    <package pid="100111"
              name="com.novaframework.unity.unitask"
              display-name="NovaFramework.UniTask"
              title="UniTask工具库"
              required="true">
         <git-repository url="%REPO_URL%/com.novaframework.unity.unitask.git"/>
     </package>
-    <package pid="112"
+    <package pid="100112"
              name="com.novaframework.unity.litjson"
              display-name="NovaFramework.LitJson"
              title="LitJson工具库">
         <git-repository url="%REPO_URL%/com.novaframework.unity.litjson.git"/>
     </package>
-    <package pid="113"
+    <package pid="100113"
              name="com.novaframework.unity.sharpziplib"
              display-name="NovaFramework.SharpZipLib"
              title="SharpZipLib工具库">
         <git-repository url="%REPO_URL%/com.novaframework.unity.sharpziplib.git"/>
     </package>
-    <package pid="121"
-             name="com.novaframework.unity.luban"
-             display-name="NovaFramework.Luban"
-             title="Luban工具库">
-        <git-repository url="%REPO_URL%/com.novaframework.unity.luban.git"/>
-    </package>
-    <package pid="211"
+    <package pid="100211"
              name="com.novaframework.unity.protobuf"
              display-name="NovaFramework.Protobuf"
              title="Protobuf工具库">
@@ -115,7 +109,7 @@
             <reference-package>com.novaframework.unity.streambuf</reference-package>
         </repulsions>
     </package>
-    <package pid="221"
+    <package pid="100212"
              name="com.novaframework.unity.streambuf"
              display-name="NovaFramework.Streambuf"
              title="Streambuf工具库">
@@ -124,7 +118,13 @@
             <reference-package>com.novaframework.unity.protobuf</reference-package>
         </repulsions>
     </package>
-    <package pid="311"
+    <package pid="100221"
+             name="com.novaframework.unity.luban"
+             display-name="NovaFramework.Luban"
+             title="Luban工具库">
+        <git-repository url="%REPO_URL%/com.novaframework.unity.luban.git"/>
+    </package>
+    <package pid="100311"
              name="com.novaframework.unity.fairygui"
              display-name="NovaFramework.FairyGUI"
              title="FairyGUI工具库">
@@ -132,13 +132,13 @@
     </package>
 
     <!-- 教程实例库 -->
-    <package pid="1011"
+    <package pid="101011"
              name="com.gameframework.unity.sample"
              display-name="GameFramework.Sample"
              title="Nova教程库"
              description="针对Nova框架的特性以及调度方式，提供一些教程案例作为使用入门的参考">
         <git-repository url="%REPO_URL%/com.gameframework.unity.sample.git"/>
-        <assembly-definition name="GameFramework.Sample" order="1011">
+        <assembly-definition name="GameFramework.Sample" order="1">
             <loadable-strategy>Module</loadable-strategy>
             <loadable-strategy>Compile</loadable-strategy>
             <loadable-strategy>Tutorial</loadable-strategy>
@@ -146,7 +146,7 @@
     </package>
 
     <!-- 游戏启动器 -->
-    <package pid="1021"
+    <package pid="101021"
              name="com.gameframework.unity.launcher"
              display-name="GameFramework.Launcher"
              title="Nova启动模版"
@@ -159,13 +159,13 @@
     </package>
 
     <!-- 模块支持库 -->
-    <package pid="1211"
+    <package pid="101211"
              name="com.gameframework.unity.module.protocol.protobuf"
              display-name="GameFramework.Protocol.Protobuf"
              title="Protobuf服务模块"
              description="提供基于Protobuf协议解析及操作码注册管理">
         <git-repository url="%REPO_URL%/com.gameframework.unity.module.protocol.protobuf.git"/>
-        <assembly-definition name="GameFramework.Protocol.Protobuf" order="1211">
+        <assembly-definition name="GameFramework.Protocol.Protobuf" order="1">
             <loadable-strategy>Module</loadable-strategy>
         </assembly-definition>
         <dependencies>
@@ -175,13 +175,13 @@
             <reference-package>com.gameframework.unity.module.protocol.streambuf</reference-package>
         </repulsions>
     </package>
-    <package pid="1221"
+    <package pid="101221"
              name="com.gameframework.unity.module.protocol.streambuf"
              display-name="GameFramework.Protocol.Streambuf"
              title="Streambuf服务模块"
              description="提供基于Streambuf协议解析及操作码注册管理">
         <git-repository url="%REPO_URL%/com.gameframework.unity.module.protocol.streambuf.git"/>
-        <assembly-definition name="GameFramework.Protocol.Streambuf" order="1221">
+        <assembly-definition name="GameFramework.Protocol.Streambuf" order="1">
             <loadable-strategy>Module</loadable-strategy>
         </assembly-definition>
         <dependencies>
@@ -191,13 +191,13 @@
             <reference-package>com.gameframework.unity.module.protocol.protobuf</reference-package>
         </repulsions>
     </package>
-    <package pid="1311"
+    <package pid="101311"
              name="com.gameframework.unity.module.view.fairygui"
              display-name="GameFramework.View.FairyGUI"
              title="FairyGUI服务模块"
              description="封装FairyGUI窗口加载及组件访问服务，对外提供UI操作的便捷访问接口">
         <git-repository url="%REPO_URL%/com.gameframework.unity.module.view.fairygui.git"/>
-        <assembly-definition name="GameFramework.View.Fairygui" order="1311">
+        <assembly-definition name="GameFramework.View.Fairygui" order="1">
             <loadable-strategy>Module</loadable-strategy>
             <loadable-strategy>Compile</loadable-strategy>
         </assembly-definition>
@@ -208,13 +208,13 @@
             <reference-package>com.novaframework.unity.fairygui</reference-package>
         </dependencies>
     </package>
-    <package pid="1321"
+    <package pid="101321"
              name="com.gameframework.unity.module.view.ugui"
              display-name="GameFramework.View.UGUI"
              title="UGUI服务模块"
              description="封装UGUI窗口加载及组件访问服务，对外提供UI操作的便捷访问接口">
         <git-repository url="%REPO_URL%/com.gameframework.unity.module.view.ugui.git"/>
-        <assembly-definition name="GameFramework.View.Ugui" order="1321">
+        <assembly-definition name="GameFramework.View.Ugui" order="1">
             <loadable-strategy>Module</loadable-strategy>
         </assembly-definition>
         <asset-sources>
@@ -223,13 +223,13 @@
     </package>
 
     <!-- 业务定制库 -->
-    <package pid="2121"
+    <package pid="102121"
              name="com.gameframework.unity.module.asset.namesearcher"
              display-name="GameFramework.Asset.NameSearcher"
              title="Goo资产名称检索器"
              description="提供基于Goo资产打包规则下的名称检索，对外提供基于名称进行资源访问的扩展操作的便捷访问接口">
         <git-repository url="%REPO_URL%/com.gameframework.unity.module.asset.namesearcher.git"/>
-        <assembly-definition name="GameFramework.Asset.NameSearcher" order="2121">
+        <assembly-definition name="GameFramework.Asset.NameSearcher" order="1">
             <loadable-strategy>Module</loadable-strategy>
         </assembly-definition>
         <dependencies>
