@@ -2,7 +2,7 @@
 <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="repo_manifest.xsd">
     <!-- 环境参数设置 -->
 
-    <environment-variable name="REPO_URL" value="https://github.com/AkasLiu"/>
+    <environment-variable name="REPO_URL" value="https://github.com/yoseasoft"/>
 
     <system-path>
         <local-path name="ORIGINAL_RESOURCE_PATH" default-value="Assets/_Resources" title="原始资源目录" required="true"/>
