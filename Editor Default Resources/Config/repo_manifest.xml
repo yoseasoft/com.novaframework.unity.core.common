@@ -24,6 +24,9 @@
              title="Goo资产管理框架"
              required="true">
         <git-repository url="%REPO_URL%/GooAsset.git"/>
+        <installation-wizard>
+            <import-strategy name="GooAsset.Editor" installable="true" configurable="true"/>
+        </installation-wizard>
     </package>
     <package pid="21"
              name="com.yoseasoft.novaframework"
