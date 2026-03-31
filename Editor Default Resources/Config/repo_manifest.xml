@@ -10,8 +10,8 @@
         <local-path name="SCRIPT_FILE_PATH" default-value="Assets/LuaScripts" title="脚本目录"/>
         <local-path name="AOT_LIBRARY_PATH" default-value="Assets/_Resources/Aot" title="预编译库目录" required="true"/>
         <local-path name="LINK_LIBRARY_PATH" default-value="Assets/_Resources/Code" title="链接库目录" required="true"/>
-        <local-path name="CONTEXT_PATH" default-value="Assets/_Resources/Context" title="环境文件目录"/>
-        <local-path name="CONFIG_PATH" default-value="Assets/_Resources/Config" title="配置文件目录"/>
+        <local-path name="CONTEXT_FILE_PATH" default-value="Assets/_Resources/Context" title="环境文件目录"/>
+        <local-path name="CONFIG_FILE_PATH" default-value="Assets/_Resources/Config" title="配置文件目录"/>
         <local-path name="PROTOCOL_PATH" default-value="Assets/_Resources/Protocol" title="协议文件目录"/>
     </system-path>
 
