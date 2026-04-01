@@ -46,13 +46,24 @@
     <package pid="100021"
              name="com.yoseasoft.gooasset"
              display-name="GooAsset"
-             title="Goo资产管理框架"
-             required="true">
+             title="Goo资产管理框架">
         <git-repository url="%REPO_URL%/GooAsset.git"/>
         <output-assemblies>
             <local-assembly name="GooAsset"/>
-            <local-assembly name="GooAsset.Editor" installable="true" configurable="true"/>
+            <local-assembly name="GooAsset.Editor"/>
         </output-assemblies>
+    </package>
+    <package pid="100022"
+             name="com.novaframework.unity.gooasset"
+             display-name="NovaFramework.GooAsset"
+             title="Nova引擎Goo资源管理库">
+        <git-repository url="%REPO_URL%/com.novaframework.unity.gooasset.git"/>
+        <output-assemblies>
+            <local-assembly name="NovaEditor.GooAsset" installable="true" configurable="true"/>
+        </output-assemblies>
+        <dependencies>
+            <reference-package>com.yoseasoft.gooasset</reference-package>
+        </dependencies>
     </package>
     <package pid="100031"
              name="com.yoseasoft.novaframework"
@@ -68,8 +79,8 @@
             <local-assembly name="NovaEngine.Editor"/>
         </output-assemblies>
         <dependencies>
-            <reference-package>com.yoseasoft.gooasset</reference-package>
             <reference-package>com.novaframework.unity.core.configure</reference-package>
+            <reference-package>com.novaframework.unity.gooasset</reference-package>
             <reference-package>com.novaframework.unity.unitask</reference-package>
         </dependencies>
     </package>
@@ -95,8 +106,7 @@
     <package pid="100111"
              name="com.novaframework.unity.unitask"
              display-name="NovaFramework.UniTask"
-             title="UniTask工具库"
-             required="true">
+             title="UniTask工具库">
         <git-repository url="%REPO_URL%/com.novaframework.unity.unitask.git"/>
         <output-assemblies>
             <local-assembly name="NovaFramework.UniTask"/>
