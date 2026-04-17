@@ -32,19 +32,19 @@ namespace NovaFramework
         /// <summary>
         /// 默认的原始资源文件夹名称
         /// </summary>
-        public const string DefaultOriginalResourceFolderName = @"_Resources";
+        // public const string DefaultRawResourceFolderName = @"_Resources";
         /// <summary>
         /// 默认的原始资源文件夹相对路径
         /// </summary>
-        public const string DefaultOriginalResourceRelativePath = @"Assets/_Resources";
+        public const string DefaultRawResourceRelativePath = @"Assets/_Resources";
 
         /// <summary>
-        /// 项目默认“Editor”文件夹路径
+        /// 默认的项目编辑文件夹路径
         /// </summary>
         public const string DefaultProjectEditorRelativePath = @"Assets/Editor";
         /// <summary>
-        /// 项目默认“Resources”文件夹路径
+        /// 默认的内部资源文件夹路径
         /// </summary>
-        public const string DefaultProjectResourceRelativePath = @"Assets/Resources";
+        public const string DefaultInternalResourceRelativePath = @"Assets/Resources";
     }
 }
