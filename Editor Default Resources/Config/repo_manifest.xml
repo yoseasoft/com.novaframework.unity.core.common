@@ -12,7 +12,6 @@
         <local-path name="LINK_LIBRARY_PATH" default-value="Assets/_Resources/Code" title="链接库目录" required="true"/>
         <local-path name="CONTEXT_FILE_PATH" default-value="Assets/_Resources/Context" title="环境文件目录"/>
         <local-path name="CONFIG_FILE_PATH" default-value="Assets/_Resources/Config" title="配置文件目录"/>
-        <local-path name="PROTOCOL_PATH" default-value="Assets/_Resources/Protocol" title="协议文件目录"/>
     </system-path>
 
     <!-- 插件包配置清单 -->
@@ -44,26 +43,13 @@
         </dependencies>
     </package>
     <package pid="100021"
-             name="com.yoseasoft.gooasset"
-             display-name="GooAsset"
-             title="Goo资产管理框架">
-        <git-repository url="%REPO_URL%/GooAsset.git"/>
+             name="com.novaframework.unity.assetloader"
+             display-name="NovaFramework.AssetLoader"
+             title="Nova引擎资源加载器">
+        <git-repository url="%REPO_URL%/com.novaframework.unity.assetloader"/>
         <output-assemblies>
-            <local-assembly name="GooAsset"/>
-            <local-assembly name="GooAsset.Editor"/>
+            <local-assembly name="NovaFramework.AssetLoader"/>
         </output-assemblies>
-    </package>
-    <package pid="100022"
-             name="com.novaframework.unity.gooasset"
-             display-name="NovaFramework.GooAsset"
-             title="Nova引擎Goo资源管理库">
-        <git-repository url="%REPO_URL%/com.novaframework.unity.gooasset.git"/>
-        <output-assemblies>
-            <local-assembly name="NovaEditor.GooAsset" installable="true" configurable="true"/>
-        </output-assemblies>
-        <dependencies>
-            <reference-package>com.yoseasoft.gooasset</reference-package>
-        </dependencies>
     </package>
     <package pid="100031"
              name="com.yoseasoft.novaframework"
@@ -80,7 +66,7 @@
         </output-assemblies>
         <dependencies>
             <reference-package>com.novaframework.unity.core.configure</reference-package>
-            <reference-package>com.novaframework.unity.gooasset</reference-package>
+            <reference-package>com.novaframework.unity.assetloader</reference-package>
             <reference-package>com.novaframework.unity.unitask</reference-package>
         </dependencies>
     </package>
@@ -101,9 +87,43 @@
             <reference-package>com.novaframework.unity.unitask</reference-package>
         </dependencies>
     </package>
+    
+    <!-- 独立插件库 -->
+    <package pid="101011"
+             name="com.yoseasoft.gooasset"
+             display-name="GooAsset"
+             title="GooAsset资产管理框架">
+        <git-repository url="%REPO_URL%/GooAsset.git"/>
+        <output-assemblies>
+            <local-assembly name="GooAsset"/>
+            <local-assembly name="GooAsset.Editor"/>
+        </output-assemblies>
+    </package>
+    <package pid="101021"
+             name="com.yoseasoft.yooasset"
+             display-name="YooAsset"
+             title="YooAsset资产管理框架">
+        <git-repository url="%REPO_URL%/YooAsset.git"/>
+        <output-assemblies>
+            <local-assembly name="YooAsset"/>
+            <local-assembly name="YooAsset.Editor"/>
+        </output-assemblies>
+    </package>
 
     <!-- 第三方工具库 -->
-    <package pid="100111"
+    <package pid="102011"
+             name="com.novaframework.unity.gooasset"
+             display-name="NovaFramework.GooAsset"
+             title="GooAsset配置工具库">
+        <git-repository url="%REPO_URL%/com.novaframework.unity.gooasset.git"/>
+        <output-assemblies>
+            <local-assembly name="NovaEditor.GooAsset" installable="true" configurable="true"/>
+        </output-assemblies>
+        <dependencies>
+            <reference-package>com.yoseasoft.gooasset</reference-package>
+        </dependencies>
+    </package>
+    <package pid="102111"
              name="com.novaframework.unity.unitask"
              display-name="NovaFramework.UniTask"
              title="UniTask工具库">
@@ -113,7 +133,7 @@
             <local-assembly name="NovaEditor.UniTask"/>
         </output-assemblies>
     </package>
-    <package pid="100112"
+    <package pid="102112"
              name="com.novaframework.unity.litjson"
              display-name="NovaFramework.LitJson"
              title="LitJson工具库">
@@ -122,7 +142,7 @@
             <local-assembly name="NovaFramework.LitJson"/>
         </output-assemblies>
     </package>
-    <package pid="100113"
+    <package pid="102113"
              name="com.novaframework.unity.sharpziplib"
              display-name="NovaFramework.SharpZipLib"
              title="SharpZipLib工具库">
@@ -131,7 +151,7 @@
             <local-assembly name="NovaFramework.SharpZipLib"/>
         </output-assemblies>
     </package>
-    <package pid="100211"
+    <package pid="102211"
              name="com.novaframework.unity.protobuf"
              display-name="NovaFramework.Protobuf"
              title="Protobuf工具库">
@@ -147,7 +167,7 @@
             <reference-package>com.novaframework.unity.streambuf</reference-package>
         </repulsions>
     </package>
-    <package pid="100212"
+    <package pid="102212"
              name="com.novaframework.unity.streambuf"
              display-name="NovaFramework.Streambuf"
              title="Streambuf工具库">
@@ -159,7 +179,7 @@
             <reference-package>com.novaframework.unity.protobuf</reference-package>
         </repulsions>
     </package>
-    <package pid="100221"
+    <package pid="102221"
              name="com.novaframework.unity.luban"
              display-name="NovaFramework.Luban"
              title="Luban工具库">
@@ -168,7 +188,7 @@
             <local-assembly name="NovaFramework.Luban"/>
         </output-assemblies>
     </package>
-    <package pid="100311"
+    <package pid="102311"
              name="com.novaframework.unity.fairygui"
              display-name="NovaFramework.FairyGUI"
              title="FairyGUI工具库">
@@ -180,7 +200,7 @@
     </package>
 
     <!-- 游戏通用库 -->
-    <package pid="101011"
+    <package pid="201011"
              name="com.gameframework.unity.common"
              display-name="GameFramework.Common"
              title="Game通用库"
@@ -192,7 +212,7 @@
     </package>
 
     <!-- 游戏教程库 -->
-    <package pid="101012"
+    <package pid="201012"
              name="com.gameframework.unity.sample"
              display-name="GameFramework.Sample"
              title="Game教程库"
@@ -214,7 +234,7 @@
     </package>
 
     <!-- 游戏启动器 -->
-    <package pid="101021"
+    <package pid="201021"
              name="com.gameframework.unity.launcher"
              display-name="GameFramework.Launcher"
              title="Game启动模版"
@@ -229,7 +249,48 @@
     </package>
 
     <!-- 模块支持库 -->
-    <package pid="101211"
+    <package pid="201111"
+             name="com.gameframework.unity.module.assetloader.gooasset"
+             display-name="GameFramework.AssetLoader.GooAsset"
+             title="GooAsset服务模块"
+             description="提供基于GooAsset资源管理框架的模块注入服务，添加该服务后Nova框架才可以正常进行GooAsset资源访问">
+        <git-repository url="%REPO_URL%/com.gameframework.unity.module.assetloader.gooasset.git"/>
+        <output-assemblies>
+            <local-assembly name="GameFramework.AssetLoader.GooAsset">
+                <modularize-definition order="1">
+                    <loadable-strategy>Module</loadable-strategy>
+                </modularize-definition>
+            </local-assembly>
+        </output-assemblies>
+        <dependencies>
+            <reference-package>com.yoseasoft.gooasset</reference-package>
+            <reference-package>com.novaframework.unity.gooasset</reference-package>
+        </dependencies>
+        <repulsions>
+            <reference-package>com.yoseasoft.yooasset</reference-package>
+        </repulsions>
+    </package>
+    <package pid="201121"
+             name="com.gameframework.unity.module.assetloader.yooasset"
+             display-name="GameFramework.AssetLoader.YooAsset"
+             title="YooAsset服务模块"
+             description="提供基于YooAsset资源管理框架的模块注入服务，添加该服务后Nova框架才可以正常进行YooAsset资源访问">
+        <git-repository url="%REPO_URL%/com.gameframework.unity.module.assetloader.yooasset.git"/>
+        <output-assemblies>
+            <local-assembly name="GameFramework.AssetLoader.YooAsset">
+                <modularize-definition order="1">
+                    <loadable-strategy>Module</loadable-strategy>
+                </modularize-definition>
+            </local-assembly>
+        </output-assemblies>
+        <dependencies>
+            <reference-package>com.yoseasoft.yooasset</reference-package>
+        </dependencies>
+        <repulsions>
+            <reference-package>com.yoseasoft.gooasset</reference-package>
+        </repulsions>
+    </package>
+    <package pid="201211"
              name="com.gameframework.unity.module.protocol.protobuf"
              display-name="GameFramework.Protocol.Protobuf"
              title="Protobuf服务模块"
@@ -249,7 +310,7 @@
             <reference-package>com.gameframework.unity.module.protocol.streambuf</reference-package>
         </repulsions>
     </package>
-    <package pid="101221"
+    <package pid="201221"
              name="com.gameframework.unity.module.protocol.streambuf"
              display-name="GameFramework.Protocol.Streambuf"
              title="Streambuf服务模块"
@@ -269,7 +330,7 @@
             <reference-package>com.gameframework.unity.module.protocol.protobuf</reference-package>
         </repulsions>
     </package>
-    <package pid="101311"
+    <package pid="201311"
              name="com.gameframework.unity.module.view.fairygui"
              display-name="GameFramework.View.FairyGUI"
              title="FairyGUI服务模块"
@@ -290,7 +351,7 @@
             <reference-package>com.novaframework.unity.fairygui</reference-package>
         </dependencies>
     </package>
-    <package pid="101321"
+    <package pid="201321"
              name="com.gameframework.unity.module.view.ugui"
              display-name="GameFramework.View.UGUI"
              title="UGUI服务模块"
@@ -309,11 +370,11 @@
     </package>
 
     <!-- 业务定制库 -->
-    <package pid="102121"
+    <package pid="202121"
              name="com.gameframework.unity.module.asset.namesearcher"
              display-name="GameFramework.Asset.NameSearcher"
-             title="Goo资产名称检索器"
-             description="提供基于Goo资产打包规则下的名称检索，对外提供基于名称进行资源访问的扩展操作的便捷访问接口">
+             title="GooAsset资源名称检索器"
+             description="提供基于GooAsset资产打包规则下的名称检索，对外提供基于名称进行资源访问的扩展操作的便捷访问接口">
         <git-repository url="%REPO_URL%/com.gameframework.unity.module.asset.namesearcher.git"/>
         <output-assemblies>
             <local-assembly name="GameFramework.Asset.NameSearcher">
