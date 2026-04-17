@@ -1,4 +1,6 @@
 /// -------------------------------------------------------------------------------
+/// NovaFramework By UnityEngine
+///
 /// Copyright (C) 2025, Hurley, Independent Studio.
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
