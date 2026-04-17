@@ -5,7 +5,7 @@
     <environment-variable name="REPO_URL" value="https://github.com/yoseasoft"/>
 
     <system-path>
-        <local-path name="ORIGINAL_RESOURCE_PATH" default-value="Assets/_Resources" title="原始资源目录" required="true"/>
+        <local-path name="RAW_RESOURCE_PATH" default-value="Assets/_Resources" title="原始资源目录" required="true"/>
         <local-path name="SOURCE_CODE_PATH" default-value="Assets/Sources" title="源码目录" required="true"/>
         <local-path name="SCRIPT_FILE_PATH" default-value="Assets/LuaScripts" title="脚本目录"/>
         <local-path name="AOT_LIBRARY_PATH" default-value="Assets/_Resources/Aot" title="预编译库目录" required="true"/>
